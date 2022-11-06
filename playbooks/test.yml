@@ -1,0 +1,10 @@
+ - hosts: mcg
+   gather_facts: true
+   user: cloud_user
+   tasks:
+    - name: Get hostname
+      shell: hostname
+      register: host_name
+
+    - name: Show hostname
+      debug: var=host_name
