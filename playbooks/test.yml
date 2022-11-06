@@ -1,10 +1,13 @@
- - hosts: mcg
+ - hosts: acg
    gather_facts: true
    user: cloud_user
    tasks:
     - name: Get hostname
       shell: hostname
       register: host_name
+      when: inventory_hostname in groups['es-master']
 
     - name: Show hostname
       debug: var=host_name
+      when: inventory_hostname in groups['es-master']
+

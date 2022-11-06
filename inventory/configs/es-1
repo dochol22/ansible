@@ -1,0 +1,9 @@
+---
+
+nodename: 'es-1'
+nodedata: false
+nodemaster: true
+master_ip: 172.31.97.88
+ip: 172.31.97.88
+es-port: 9200
+cluster: '["172.31.97.88", "172.31.109.192","172.31.105.134"]'

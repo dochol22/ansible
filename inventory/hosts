@@ -1,4 +1,12 @@
-[mcg]
+[acg]
 3191a3d20d1c.mylabserver.com
 3191a3d20d2c.mylabserver.com
 3191a3d20d3c.mylabserver.com
+
+[es-master]
+3191a3d20d1c.mylabserver.com
+
+[es-data]
+3191a3d20d2c.mylabserver.com
+3191a3d20d3c.mylabserver.com
+

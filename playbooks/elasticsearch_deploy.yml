@@ -1,17 +1,23 @@
- - hosts: mcg
+ - hosts: acg
    user: cloud_user
    gather_facts: true
    tasks:
     - name: Install ES repo
       shell: curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add - echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
     
+    - name: Install dependencies
+      shell: sudo apt-get install apt-transport-https -y
+
     - name: Install ES
       apt: 
         name: elasticsearch
+        state: fixed
         update_cache: true
 
     - name: Install Kibana
       apt:
         name: kibana
-        update_cache: true
+        state: fixed
+        update_cachei: true
+        when: inventory_hostname in groups['es-master']
 
