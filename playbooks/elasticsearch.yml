@@ -1,0 +1,17 @@
+ - hosts: mcg
+   user: cloud_user
+   gather_facts: true
+   tasks:
+    - name: Install ES repo
+      shell: curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add - echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+    
+    - name: Install ES
+      apt: 
+        name: elasticsearch
+        update_cache: true
+
+    - name: Install Kibana
+      apt:
+        name: kibana
+        update_cache: true
+
